@@ -22,20 +22,20 @@
 
         <!-- Page Content -->
         <div class="flex flex-col w-full">
-            <div class="h-16 bg-white w-full">
-
-            </div>
+            @include('layouts.navigation-top')
 
             <main>
-                @isset($header)
-                    <header>
-                        <div class="max-w-7xl text-3xl mx-auto py-6 px-4 sm:px-6 lg:px-8 mt-6">
-                            {{ $header }}
-                        </div>
-                    </header>
-                @endisset
+                <div class="px-4">
+                    @isset($header)
+                        <header>
+                            <div class="max-w-7xl text-3xl mx-auto py-6 px-4 sm:px-6 lg:px-8 mt-6">
+                                {{ $header }}
+                            </div>
+                        </header>
+                    @endisset
 
-                {{ $slot }}
+                    {{ $slot }}
+                </div>
             </main>
         </div>
 
