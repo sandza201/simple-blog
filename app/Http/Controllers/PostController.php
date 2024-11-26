@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
+use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -12,7 +16,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return view('posts.index', [
+            'posts' => Post::all(),
+        ]);
     }
 
     /**
@@ -20,15 +26,22 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create', [
+            'categories' => Category::all(),
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        $post = Auth::user()->posts()->create($validated);
+        $post->categories()->attach($validated['categories']);
+
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -60,6 +73,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('posts.index');
     }
 }
