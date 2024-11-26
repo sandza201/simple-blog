@@ -74,7 +74,12 @@ class PostController extends Controller
     public function update(StorePostRequest $request, Post $post)
     {
         $validated = $request->validated();
-        dd($request);
+
+        $post->update($validated);
+        $post->categories()->sync($validated['categories']);
+        $post->save();
+
+        return redirect()->route('posts.index');
     }
 
     /**

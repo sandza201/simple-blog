@@ -7,7 +7,7 @@
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <x-forms.form method="PUT" action="{{ route('posts.update', $post) }}">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6 border flex flex-col gap-6">
+            <div class="bg-white shadow-sm sm:rounded-lg p-6 border flex flex-col gap-6">
                 <div class="flex flex-col">
                     <x-forms.input-label value="title" />
                     <x-forms.text-input name="title" value="{{ old('title') ?? $post->title }}" />
@@ -18,16 +18,7 @@
                     <x-forms.textarea name="body" value="{{ old('body') ?? $post->body }}" />
                 </div>
 
-                <div>
-                    <x-forms.input-label value="categories" />
-                    <select multiple="multiple" id="categories" name="categories[]"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                        <option selected>Choose categories</option>
-                        @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->title }}</option>
-                        @endforeach
-                    </select>
-                </div>
+                <x-forms.select-multiple :$categories :selected="$post->categories" />
 
             </div>
             <div class="flex flex-row gap-4 items-center mt-4">

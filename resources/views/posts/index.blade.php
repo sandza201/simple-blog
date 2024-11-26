@@ -44,10 +44,10 @@
                                 <tr>
                                     <td class="px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6">
                                         {{ $post->title }}</td>
-                                    <td class="px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6">
+                                    <td class="px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6 truncate max-w-64">
                                         {{ $post->body }}</td>
                                     <td class="px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6">
-                                        {{ $post->created_at }}</td>
+                                        {{ $post->created_at->diffForHumans() }}</td>
                                     <td
                                         class="flex flex-row-reverse gap-4 px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6">
                                         <form action="{{ route('posts.destroy', $post->id) }}" method="POST">

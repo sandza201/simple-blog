@@ -42,7 +42,7 @@
                                     <td class="px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6">
                                         {{ $category->title }}</td>
                                     <td class="px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6">
-                                        {{ $category->created_at }}</td>
+                                        {{ $category->created_at->diffForHumans() }}</td>
                                     <td
                                         class="flex flex-row-reverse gap-4 px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6">
                                         <form action="{{ route('posts.destroy', $category->id) }}" method="POST">

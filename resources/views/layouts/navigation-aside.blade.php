@@ -10,16 +10,20 @@
 
     <div class="flex flex-col gap-y-7 px-6 py-8 text-gray-700">
         <div class="flex flex-col gap-y-2 w-full">
+            <x-nav-link :href="route('home')">
+                Home
+            </x-nav-link>
+
             <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                Dashboard
             </x-nav-link>
 
             <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.*')">
-                {{ __('Posts') }}
+                Posts
             </x-nav-link>
 
             <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
-                {{ __('Categories') }}
+                Categories
             </x-nav-link>
         </div>
     </div>

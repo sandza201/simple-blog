@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/feed', [PostFeedController::class, 'index'])->name('feed.index');
-Route::get('/feed/{post}', [PostFeedController::class, 'show'])->name('feed.post');
+Route::get('/feed/post/{post}', [PostFeedController::class, 'show'])->name('feed.post');
+Route::get('/feed/search', [PostFeedController::class, 'search'])->name('feed.search');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
