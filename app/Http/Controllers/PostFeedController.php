@@ -14,7 +14,7 @@ class PostFeedController extends Controller
         ]);
     }
 
-    public function post(Post $post)
+    public function show(Post $post)
     {
         return view('feed.post', [
             'post' => $post,

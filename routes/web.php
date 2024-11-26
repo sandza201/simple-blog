@@ -12,21 +12,21 @@ Route::get('/', function () {
 });
 
 Route::get('/feed', [PostFeedController::class, 'index'])->name('feed.index');
-Route::get('/feed/{post}', [PostFeedController::class, 'post'])->name('feed.post');
-
-Route::post('/comment/{post}', [CommentController::class, 'store'])->name('comments.store');
-Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
-
-Route::resources([
-    'posts' => PostController::class,
-    'categories' => CategoryController::class,
-]);
+Route::get('/feed/{post}', [PostFeedController::class, 'show'])->name('feed.post');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
+    Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+
+    Route::resources([
+        'posts' => PostController::class,
+        'categories' => CategoryController::class,
+    ]);
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

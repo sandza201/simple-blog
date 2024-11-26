@@ -17,13 +17,19 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="py-6 text-gray-900">
                     <table class="table-auto divide-y divide-gray-200 text-start w-full">
-                        <thead class="divide-y divide-gray-200 border-b border-t">
+                        <thead class="divide-y divide-gray-200 border-b border-t text-left">
                             <tr class="bg-gray-50">
                                 <th class="px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6">
                                     Title
                                 </th>
                                 <th class="px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6">
+                                    Content
+                                </th>
+                                <th class="px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6">
                                     Created_at
+                                </th>
+                                <th class="px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6">
+                                    Actions
                                 </th>
                             </tr>
                         </thead>
@@ -32,13 +38,16 @@
                             @foreach ($posts as $post)
                                 <tr>
                                     <td>{{ $post->title }}</td>
-                                    <td class="truncate">{{ $post->body }}</td>
-                                    <td>
+                                    <td class="truncate max-w-32">{{ $post->body }}</td>
+                                    <td class="truncate max-w-32">{{ $post->created_at }}</td>
+                                    <td class="flex flex-row gap-4">
                                         <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="text-red-600 hover:underline">Delete</button>
                                         </form>
+                                        <a href="{{ route('posts.edit', $post) }}">edit</a>
+                                        <a href="{{ route('posts.show', $post) }}">view</a>
                                     </td>
                                 </tr>
                             @endforeach
