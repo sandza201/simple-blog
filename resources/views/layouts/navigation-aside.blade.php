@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 flex flex-col">
+<nav x-data="{ open: false }" class="border-b border-gray-100 flex flex-col">
     <div>
         <h1
             class="flex flex-row gap-4 h-16 items-center bg-white px-6 font-bold text-lg ring-1 ring-gray-950/5 lg:shadow-sm">

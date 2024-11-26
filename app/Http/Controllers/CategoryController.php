@@ -15,7 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         return view('categories.index', [
-            'categories'=> Category::all(),
+            'categories' => Category::all(),
         ]);
     }
 
@@ -52,15 +52,23 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('categories.edit', [
+            'category' => $category,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(StoreCategoryRequest $request, Category $category)
     {
-        //
+        $validated = $request->validated();
+
+        $category->update($validated);
+
+        $category->save();
+
+        return redirect()->route('categories.index');
     }
 
     /**
