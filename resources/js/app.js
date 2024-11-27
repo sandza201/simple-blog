@@ -10,9 +10,8 @@ document.addEventListener('alpine:init', () => {
 
         return {
             updatedAt: Date.now(),
-            editorContent: content, // Hold the editor content
+            editorContent: content,
 
-            // Initialize the editor
             init() {
                 const _this = this;
 
@@ -22,34 +21,34 @@ document.addEventListener('alpine:init', () => {
                     content: content,
                     onCreate({ editor }) {
                         _this.updatedAt = Date.now();
-                        _this.editorContent = editor.getHTML(); // Capture initial content
+                        _this.editorContent = editor.getHTML();
                     },
                     onUpdate({ editor }) {
                         _this.updatedAt = Date.now();
-                        _this.editorContent = editor.getHTML(); // Update content on changes
+                        _this.editorContent = editor.getHTML();
                     },
                     onSelectionUpdate({ editor }) {
                         _this.updatedAt = Date.now();
                     },
                 });
             },
+            
+            isActive(type, opts = {}) {
+                return editor.isActive(type, opts)
+            },
 
-            // Check if the editor is loaded
             isLoaded() {
                 return editor;
             },
 
-            // Toggle heading style
             toggleHeading(opts) {
                 editor.chain().toggleHeading(opts).focus().run();
             },
 
-            // Toggle bold style
             toggleBold() {
                 editor.chain().focus().toggleBold().run();
             },
 
-            // Toggle italic style
             toggleItalic() {
                 editor.chain().toggleItalic().focus().run();
             },

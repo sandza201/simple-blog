@@ -13,12 +13,9 @@
                     <x-forms.text-input name="title" value="{{ old('title') ?? $post->title }}" />
                 </div>
 
-                <div class="flex flex-col">
-                    <x-forms.input-label value="body" />
-                    <x-forms.textarea name="body" value="{{ old('body') ?? $post->body }}" />
-                </div>
-
                 <x-forms.select-multiple :$categories :selected="$post->categories" />
+
+                <x-forms.rich-text value="{{ $post->body }}" name="body" />
 
             </div>
             <div class="flex flex-row gap-4 items-center mt-4">

@@ -39,7 +39,7 @@
                                 <td class="px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6">
                                     {{ $post->title }}</td>
                                 <td class="px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6 truncate max-w-64">
-                                    {{ $post->body }}</td>
+                                    {!! $post->body !!}</td>
                                 <td class="px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6">
                                     {{ $post->created_at->diffForHumans() }}</td>
                                 <td
