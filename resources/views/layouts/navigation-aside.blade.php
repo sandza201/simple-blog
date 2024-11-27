@@ -4,7 +4,7 @@
             class="flex flex-row gap-4 h-16 items-center bg-white px-6 font-bold text-lg ring-1 ring-gray-950/5 shadow-sm">
             <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
 
-            Laravel
+            {{ config('app.name', 'Laravel') }}
     </a>
     </div>
 
