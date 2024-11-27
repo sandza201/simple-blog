@@ -27,7 +27,6 @@ Setting up your development environment on your local machine:
 git clone https://github.com/sandza201/simple-blog.git
 cd simple-blog
 cp .env.example .env
-php artisan key:generate
 ```
 
 ## Install PHP dependencies with Composer
@@ -37,6 +36,13 @@ Make sure you have Composer installed.
 Run the following command to install the PHP dependencies:
 ```bash
 composer install
+```
+
+## Generate application key
+
+Run this command to generate the application key:
+```bash
+php artisan key:generate
 ```
 
 ## Before starting
