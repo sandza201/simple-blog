@@ -18,26 +18,37 @@ class DatabaseSeeder extends Seeder
     {
         $categories = Category::factory(5)->create();
 
-        User::factory()->create([
+        $testUser1 = User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
-        User::factory()->create([
+
+        $testUser2 = User::factory()->create([
             'name' => 'Test User 2',
             'email' => 'test2@example.com',
         ]);
 
         User::factory(20)->create();
-        
+
         $users = User::all();
 
-        $users->each(function ($user) use ($categories, $users) {
+        $users->each(function ($user) use ($categories, $users, $testUser1, $testUser2) {
             Post::factory(rand(1, 4))->create([
                 'author_id' => $user->id
-            ])->each(function ($post) use ($categories, $users) {
+            ])->each(function ($post) use ($categories, $users, $testUser1, $testUser2) {
                 $post->categories()->attach($categories->random(rand(1, 5)));
 
-                Comment::factory(rand(2, 10))->make()->each(function ($comment) use ($post, $users) {
+                Comment::factory(5)->create([
+                    'post_id' => $post->id,
+                    'author_id' => $testUser1->id
+                ]);
+
+                Comment::factory(3)->create([
+                    'post_id' => $post->id,
+                    'author_id' => $testUser2->id
+                ]);
+
+                Comment::factory(rand(2, 3))->make()->each(function ($comment) use ($post, $users) {
                     $comment->post_id = $post->id;
                     $comment->author_id = $users->random()->id;
                     $comment->save();

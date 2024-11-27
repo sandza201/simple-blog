@@ -51,18 +51,35 @@ $ npm run dev
 ## How to Use
 
 ### 1. **User Registration and Login**
-   - **Registration**: Upon visiting the website, click on the **Register** button. Fill out the registration form with your details (name, email, password) and submit.
-   - **Login**: Once registered, you can log in with your email and password by clicking the **Login** button.
+   - **Registration**: Upon visiting the website, click on the **Register** button. Fill out the registration form with your details (name, email, password) and submit the form to create a new account.
+   - **Login**: Once registered, you can log in using your email and password by clicking the **Login** button.
+   
+   - **Alternatively, use one of the pre-seeded test accounts**:
+     These accounts have been seeded for development and testing purposes. You can log in directly using the credentials below:
+
+     **Test User Account 1**:
+     ```yml
+     email: test@example.com
+     password: password
+     ```
+
+     **Test User Account 2**:
+     ```yml
+     email: test2@example.com
+     password: password
+     ```
+
+     Simply enter these credentials on the login page to access the application without needing to register a new account.
 
 ### 2. **CRUD Operations for Blog Posts**
    - After logging in, you will be redirected to your **Dashboard**. From here, you can manage your blog posts.
    - **Create a Post**: Navigate to **Posts** in the dashboard navigation and click on the **New Post** button to add a new blog post. You'll need to provide a title, body content, and select any relevant categories.
-   - **Read Posts**: You can view all posts in the **Feed** section. Each post displays the title, author name, creation date, and body content.
-   - **Edit a Post**: On your posts list, click the **Edit** button next to a post to modify it.
+   - **Read Posts**: You can view all posts in the **Feed** section by clicking **Home** from dashboard navigation. Each post displays the title, author name, creation date, body content and comments.
+   - **Edit a Post**: On your posts list in dashboard, click the **Edit** button next to a post to modify it.
    - **Delete a Post**: You can delete a post by clicking the **Delete** button.
 
 ### 3. **Comments**
-   - **Post a Comment**: If you're logged in, you can post a comment on any blog post. Simply scroll to the comment section at the bottom of the post and type your comment.
+   - **Post a Comment**: If you're logged in, you can post a comment on any blog post. Simply scroll to the comment section at the bottom of the post in **Feed** and type your comment.
    - **Delete Your Comment**: You can delete only your own comments by clicking the **Delete** button next to your comment.
 
 ### 4. **Categories**
@@ -76,6 +93,8 @@ $ npm run dev
 
 ### Additional Features
 
-- **Pagination**: Blog posts are paginated for easy browsing. You can navigate between pages using the **Next** and **Previous** links.
-- **Validation**: All form inputs are validated to ensure correct data is entered (e.g., required fields, valid email format).
-- **Responsive Design**: The application is fully responsive and works well on both desktop and mobile devices.
+- **Pagination**: Blog posts are organized with pagination to provide an efficient browsing experience. You can easily navigate through multiple pages of posts using the **Next** and **Previous** buttons at the bottom of the page.
+
+- **TipTap Rich Text Editor**: The application uses the **TipTap** rich text editor for creating and editing blog posts, allowing users to format text.
+
+- **Responsive Design**: The application is fully responsive, providing an optimized user experience across a variety of devices. Whether you're on a desktop, tablet, or mobile phone, the layout adapts seamlessly to different screen sizes.
