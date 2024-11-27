@@ -2,15 +2,16 @@
 
 <div x-data="editor('{!! $value !!}')" @editor-content-updated="updateBody">
     <template x-if="isLoaded()">
-        <div class="menu">
+        <div class="border border-t-b-0 py-2 px-4 rounded-t-lg">
             <button type="button" @click="toggleHeading({ level: 1 })"
-                :class="{ 'is-active': isActive('heading', { level: 1 }, updatedAt) }">
+                :class="{ 'is-active': isActive('heading', { level: 1 }, updatedAt) }" class="px-4">
                 H1
             </button>
-            <button type="button" @click="toggleBold()" :class="{ 'is-active': isActive('bold', updatedAt) }">
+            <button type="button" @click="toggleBold()" :class="{ 'is-active': isActive('bold', updatedAt) }"
+                class="px-4">
                 Bold
             </button>
-            <button type="button" @click="toggleItalic()" :class="{ 'is-active': isActive('italic', updatedAt) }">
+            <button type="button" @click="toggleItalic()" :class="{ 'is-active': isActive('italic', updatedAt) }" class="px-4">
                 Italic
             </button>
         </div>
@@ -30,7 +31,6 @@
     .tiptap {
         min-height: 600px;
         padding: 0.5rem 1rem;
-        margin: 1rem 0;
         border: 1px solid #ccc;
     }
 </style>

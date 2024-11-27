@@ -10,7 +10,7 @@
 
     <div class="flex flex-col gap-y-7 px-6 py-8 text-gray-700">
         <div class="flex flex-col gap-y-2 w-full">
-            <x-nav-link :href="route('home')">
+            <x-nav-link :href="route('feed.index')">
                 Home
             </x-nav-link>
 

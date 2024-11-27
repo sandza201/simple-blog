@@ -83,7 +83,7 @@
                             <div class="flex flex-row-reverse">
                                 @can('delete', $comment)
                                     <x-forms.form method="DELETE" action="{{ route('comments.destroy', $comment) }}">
-                                        <button type="submit" class="text-red-500 hover:underline">Delete response</button>
+                                        <button type="submit" class="text-red-500 hover:underline">Delete comment</button>
                                     </x-forms.form>
                                 @endcan
                             </div>
