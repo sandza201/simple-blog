@@ -2,13 +2,19 @@
 
 The purpose of this repository is to implement a simple blog system using Laravel 11:
 
-## Basic Features
+## Requirements
 
 - User registration/authentication: Users should be able to register an account and log in. Handle authentication using Laravel’s built-in capabilities.
 - CRUD operations for blog posts: Users should be able to Create, Read, Update, and Delete their own blog posts. Each blog post should include a title, body content, creation date and time, and the author’s name.
 - Comments: Users should be able to post comments on blog posts. Users can only post a comment if they are logged in, and they may only delete their own comments.
 - Categories: Users should have the ability to assign categories to their posts. A post can have many categories and a category can belong to many posts (Many-to-Many relationship).
 - Search function: Users should be able to conduct a keyword search on blog posts (post title and body)
+- To achieve this, you would make use of Laravel’s MVC design pattern, Eloquent ORM, and Blade templating engine with Tailwind CSS for front-end design.
+
+Additional Requirements
+- All user inputs are validated before being processed.
+- Make use of Laravel’s Middleware for access control, e.g, ensuring only post authors can edit their own posts.
+- All data displayed should be adequately sanitized to prevent cross-site scripting (XSS).
 
 ## Some screenshots
 
@@ -110,6 +116,6 @@ Now open [http://simple-blog.test](http://simple-blog.test).
 
 - **Pagination**: Blog posts are organized with pagination to provide an efficient browsing experience. You can easily navigate through multiple pages of posts using the **Next** and **Previous** buttons at the bottom of the page.
 
-- **TipTap Rich Text Editor**: The application uses the **TipTap** rich text editor for creating and editing blog posts, allowing users to format text.
+- **TipTap Rich Text Editor**: The application uses the **TipTap** rich text editor for creating and editing blog posts, allowing users to format text. [Tiptap](https://tiptap.dev/)
 
 - **Responsive Design**: The application is fully responsive, providing an optimized user experience across a variety of devices. Whether you're on a desktop, tablet, or mobile phone, the layout adapts seamlessly to different screen sizes.
