@@ -51,12 +51,6 @@ You need to run the migrations with the seeds :
 php artisan migrate:fresh --seed
 ```
 
-This will create a new user that you can use to sign in :
-```yml
-email: test@example.com
-password: password
-```
-
 Install JavaScript dependencies :
 ```bash
 npm install

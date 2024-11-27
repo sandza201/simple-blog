@@ -73,6 +73,19 @@
                         </div>
                     </div>
                 @endif
+                @if ($errors->any())
+                    <div x-show="showToast" x-transition class="fixed bottom-3 right-3">
+                        <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 flex flex-row" role="alert">
+                            <span class="font-medium">Error! </span>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li> {{ $error }}</li>
+                                @endforeach
+                            </ul>
+                            <span @click="showToast = false" class="px-2 cursor-pointer">X</span>
+                        </div>
+                    </div>
+                @endif
             </div>
         </main>
     </div>

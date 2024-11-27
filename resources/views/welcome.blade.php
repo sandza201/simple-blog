@@ -3,7 +3,7 @@
         <img class="md:absolute md:right-0 md:top-1/2 md:bottom-1/2 md:-translate-y-1/2" src="/storage/images/7061503.svg" alt="">
         <main class="mx-auto max-w-7xl h-full flex w-full">
             <div class="my-auto flex flex-col">
-                <h1 class="text-[6rem] leading-none font-georgia">Home <br>
+                <h1 class="text-5xl md:text-[6rem] leading-none font-georgia">Home <br>
                     stories & ideas</h1>
                 <p class="text-xl mt-6">A place to read, write, and deepen your understanding</p>
                 <a href="{{ route('feed.index') }}"
