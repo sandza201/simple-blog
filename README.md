@@ -24,17 +24,25 @@ To create your development environment [follow these instructions](https://larav
 
 Setting up your development environment on your local machine:
 ```bash
-$ git clone https://github.com/sandza201/simple-blog.git
-$ cd simple-blog
-$ cp .env.example .env
+git clone https://github.com/sandza201/simple-blog.git
+cd simple-blog
+cp .env.example .env
+php artisan key:generate
 ```
 
-Now open [http://simple-blog.test](http://simple-blog.test).
+## Install PHP dependencies with Composer
+
+Make sure you have Composer installed.
+
+Run the following command to install the PHP dependencies:
+```bash
+composer install
+```
 
 ## Before starting
 You need to run the migrations with the seeds :
 ```bash
-$ php artisan migrate:fresh --seed
+php artisan migrate:fresh --seed
 ```
 
 This will create a new user that you can use to sign in :
@@ -43,10 +51,17 @@ email: test@example.com
 password: password
 ```
 
+Install JavaScript dependencies :
+```bash
+npm install
+```
+
 And then, compile the assets :
 ```bash
-$ npm run dev
+npm run dev
 ```
+
+Now open [http://simple-blog.test](http://simple-blog.test).
 
 ## How to Use
 
