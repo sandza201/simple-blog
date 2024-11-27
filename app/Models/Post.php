@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Stevebauman\Purify\Casts\PurifyHtmlOnGet;
 
 class Post extends Model
 {
@@ -13,6 +14,10 @@ class Post extends Model
         'author_id',
         'body',
         'title',
+    ];
+
+    protected $casts = [
+        'body' => PurifyHtmlOnGet::class,
     ];
 
     public function author(): BelongsTo
