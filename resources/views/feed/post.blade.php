@@ -34,7 +34,7 @@
                             </g>
                         </g>
                     </svg>
-                    <span>{{ count($post->comments) }}</span>
+                    <span>{{ count($comments) }}</span>
                 </a>
             </div>
 
@@ -43,7 +43,7 @@
             </div>
 
             <div id="comments" class="border-t py-12">
-                <h1 class="font-bold text-2xl mb-8">Comments ({{ count($post->comments) }})</h1>
+                <h1 class="font-bold text-2xl mb-8">Comments ({{ count($comments) }})</h1>
 
                 @can('create', App\Models\Comment::class)
                     <form action="{{ route('comments.store', $post->id) }}" method="POST">
@@ -61,7 +61,7 @@
 
 
                 <div class="border-t mt-12">
-                    @foreach ($post->comments as $comment)
+                    @foreach ($comments as $comment)
                         <div class="border-b py-6 text-sm flex flex-col">
                             <div class="flex flex-row gap-2">
                                 <img class="w-8 h-8 rounded-full" src="https://picsum.photos/200" alt="profile picture">

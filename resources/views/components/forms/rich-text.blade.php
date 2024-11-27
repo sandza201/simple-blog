@@ -1,6 +1,6 @@
 @props(['name', 'value' => ''])
 
-<div x-data="editor('{!! $value !!}')" @editor-content-updated="updateBody">
+<div x-data="editor(@js($value))" @editor-content-updated="updateBody">
     <template x-if="isLoaded()">
         <div class="border border-t-b-0 py-2 px-4 rounded-t-lg">
             <button type="button" @click="toggleHeading({ level: 1 })"
@@ -11,7 +11,8 @@
                 class="px-4">
                 Bold
             </button>
-            <button type="button" @click="toggleItalic()" :class="{ 'is-active': isActive('italic', updatedAt) }" class="px-4">
+            <button type="button" @click="toggleItalic()" :class="{ 'is-active': isActive('italic', updatedAt) }"
+                class="px-4">
                 Italic
             </button>
         </div>

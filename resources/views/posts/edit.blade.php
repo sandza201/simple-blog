@@ -16,7 +16,8 @@
                 <x-forms.select-multiple :$categories :selected="$post->categories" />
 
                 <x-forms.input-label value="body" />
-                <x-forms.rich-text value="{{ $post->body }}" name="body" />
+
+                <x-forms.rich-text :value="$post->body" name="body" />
 
             </div>
             <div class="flex flex-row gap-4 items-center mt-4">

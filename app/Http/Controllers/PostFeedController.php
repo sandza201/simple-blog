@@ -45,6 +45,7 @@ class PostFeedController extends Controller
     {
         return view('feed.post', [
             'post' => $post,
+            'comments' => $post->comments()->latest()->get(),
         ]);
     }
 }

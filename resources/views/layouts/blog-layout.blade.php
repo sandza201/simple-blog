@@ -61,7 +61,7 @@
         </nav>
 
         <main>
-            <div class="max-w-6xl mx-auto px-4 sm:px-0">
+            <div class="px-4 sm:px-0">
                 {{ $slot }}
             </div>
             <div x-data="{ showToast: true }">
