@@ -14,8 +14,14 @@
     </x-slot>
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        @if (session()->has('message'))
+            <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50" role="alert">
+                <span class="font-medium">Success!</span> {{ session()->get('message') }}
+            </div>
+        @endif
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="py-6 text-gray-900">
+
                 <table class="table-auto divide-y divide-gray-200 text-start w-full">
                     <thead class="divide-y divide-gray-200 border-b border-t text-left">
                         <tr class="bg-gray-50">
@@ -38,8 +44,6 @@
                             <tr>
                                 <td class="px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6">
                                     {{ $post->title }}</td>
-                                <td class="px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6 truncate max-w-64">
-                                    {!! $post->body !!}</td>
                                 <td class="px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6">
                                     {{ $post->created_at->diffForHumans() }}</td>
                                 <td

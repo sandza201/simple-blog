@@ -49,7 +49,7 @@
                     <form action="{{ route('comments.store', $post->id) }}" method="POST">
                         @csrf
                         <span class="flex flex-col w-full shadow-lg border border-gray-50 relative min-h-32 p-4">
-                            <span>{{ auth()->user()->name }}</span>
+                            <span class="font-medium">{{ auth()->user()->name }}</span>
                             <input type="text" class="border-0 px-0 focus:ring-0" name="content" id="content"
                                 placeholder="What are your thoughts?"></input>
                             <button type="submit"

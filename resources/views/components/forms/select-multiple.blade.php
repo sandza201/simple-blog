@@ -22,7 +22,7 @@
             style="display: none;">
             <template x-for="option in options" :key="option.id">
                 <div @click="toggleOption(option)"
-                    class="cursor-pointer select-none relative py-2 pl-3 pr-9 hover:bg-primary hover:text-white">
+                    class="cursor-pointer select-none relative py-2 pl-3 pr-9 hover:bg-gray-100 hover:text-black">
                     <span x-text="option.title" :class="{ 'font-semibold': selectedOptions.includes(option.id) }"
                         class="block truncate"></span>
                     <span x-show="selectedOptions.includes(option.id)"
@@ -56,7 +56,7 @@
         return {
             open: false,
             options: @json($categories->map(fn($category) => ['id' => $category->id, 'title' => $category->title])->toArray()),
-            selectedOptions: @json($selected ? $selected->pluck('id')->toArray() : []), // Prepopulate selected categories by ID
+            selectedOptions: @json($selected ? $selected->pluck('id')->toArray() : []),
 
             toggleOption(option) {
                 if (this.selectedOptions.includes(option.id)) {
@@ -66,7 +66,6 @@
                 }
             },
 
-            // Helper function to get title based on ID
             getOptionTitle(id) {
                 const option = this.options.find(option => option.id === id);
                 return option ? option.title : '';

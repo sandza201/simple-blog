@@ -6,7 +6,6 @@ use App\Http\Requests\StoreCommentRequest;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
@@ -25,18 +24,18 @@ class CommentController extends Controller
 
         $post->comments()->create($validated);
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Comment created successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request, Comment $comment)
+    public function destroy(Comment $comment)
     {
         $this->authorize('delete', $comment);
 
         $comment->delete();
 
-        return redirect()->back()->with('success', 'Comment deleted successfully.');
+        return redirect()->back()->with('message', 'Comment deleted successfully.');
     }
 }

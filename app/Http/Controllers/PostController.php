@@ -44,7 +44,7 @@ class PostController extends Controller
         $post = Auth::user()->posts()->create($validated);
         $post->categories()->attach($validated['categories']);
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('message', 'Post created successfully!');
     }
 
     /**
@@ -83,7 +83,7 @@ class PostController extends Controller
         $post->categories()->sync($validated['categories']);
         $post->save();
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('message', 'Post updated successfully!');
     }
 
     /**
@@ -95,6 +95,6 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect()->route('posts.index')->with('success', 'Post deleted successfully!');
+        return redirect()->route('posts.index')->with('message', 'Post deleted successfully!');
     }
 }
