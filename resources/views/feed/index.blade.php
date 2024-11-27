@@ -24,12 +24,19 @@
             @foreach ($posts as $post)
                 <a href="{{ route('feed.post', $post) }}" class="flex flex-col border-b py-6">
                     <div class="flex flex-col col-span-2 gap-2 mt-4">
-                        <div class="flex flex-row gap-2 items-center">
-                            <img class="w-5 h-5 rounded-full" src="https://picsum.photos/200" alt="profile picture">
-                            <span>By {{ $post->author->name }}</span>
-                            @foreach ($post->categories as $category)
-                                <span class="px-2 py-1 text-xs rounded-full bg-gray-100">{{ $category->title }}</span>
-                            @endforeach
+                        <div class="flex flex-col md:flex-row md:gap-6 gap-3">
+                            <div class="flex flex-row  gap-2 items-center">
+                                <img class="w-5 h-5 rounded-full" src="https://picsum.photos/200" alt="profile picture">
+                                <span>By {{ $post->author->name }}</span>
+                            </div>
+
+                            <div class="flex flex-row flex-wrap gap-2">
+                                @foreach ($post->categories as $category)
+                                    <span
+                                        class="px-2 py-1 text-xs rounded-full bg-gray-100">{{ $category->title }}</span>
+                                @endforeach
+                            </div>
+
                         </div>
                         <h1 class="text-2xl font-bold mb-2">
                             {{ $post->title }}

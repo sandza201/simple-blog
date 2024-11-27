@@ -55,12 +55,16 @@
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden fixed top-16 z-10 w-screen">
         <div class="pt-4 pb-1 border-t border-gray-200 bg-white">
             <div class="pt-2 pb-3 flex flex-col border-b mb-6">
+                <x-nav-link :href="route('feed.index')">
+                    Home
+                </x-nav-link>
+
                 <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
+                    Dashboard
                 </x-nav-link>
 
                 <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.*')">
-                    {{ __('Posts') }}
+                    Posts
                 </x-nav-link>
 
             </div>
