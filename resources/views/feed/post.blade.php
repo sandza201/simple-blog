@@ -1,7 +1,7 @@
 <x-blog-layout>
     <div>
         <article class="mx-auto max-w-2xl py-12">
-            <h1 class="text-5xl font-bold">{{ $post->title }}</h1>
+            <h1 class="text-3xl md:text-5xl font-bold">{{ $post->title }}</h1>
             <div class="flex flex-row gap-4 my-10">
                 <img src="https://picsum.photos/200" class="w-12 h-12 rounded-full" alt="profile picture">
                 <div class="flex flex-col">
