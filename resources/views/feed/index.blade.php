@@ -8,6 +8,10 @@
         @endisset
         <div class="border-b mt-6">
             <div class="flex flex-row flex-wrap gap-3">
+                <a href="{{ route('feed.index') }}"
+                    class="py-2 px-4 text-sm {{ request()->routeIs('feed.index') ? 'text-black font-bold border-b border-primary' : 'text-gray-500' }}">
+                    All
+                </a>
                 @foreach ($categories as $category)
                     <a href="{{ route('feed.category', $category) }}"
                         class="py-2 px-4 text-sm {{ request()->is('feed/category/' . $category->id) ? 'text-black font-bold border-b border-primary' : 'text-gray-500' }}">
