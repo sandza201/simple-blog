@@ -66,7 +66,12 @@
                             <div class="flex flex-row gap-2">
                                 <img class="w-8 h-8 rounded-full" src="https://picsum.photos/200" alt="profile picture">
                                 <div class="flex flex-col mb-4">
-                                    <span>{{ $comment->author->name }}</span>
+                                    <span>
+                                        {{ $comment->author->name }}
+                                        @if (auth()->check() && $comment->author->id === auth()->user()->id)
+                                            <span class="text-primary font-semibold">(You)</span>
+                                        @endif
+                                    </span>
                                     <span class="text-gray-500">{{ $comment->created_at->diffForHumans() }}</span>
                                 </div>
                             </div>
@@ -75,11 +80,13 @@
                                 {{ $comment->content }}
                             </span>
 
-                            @can('delete', $comment)
-                                <x-forms.form method="DELETE" action="{{ route('comments.destroy', $comment) }}">
-                                    <button type="submit" class="text-red-500 hover:underline">Delete response</button>
-                                </x-forms.form>
-                            @endcan
+                            <div class="flex flex-row-reverse">
+                                @can('delete', $comment)
+                                    <x-forms.form method="DELETE" action="{{ route('comments.destroy', $comment) }}">
+                                        <button type="submit" class="text-red-500 hover:underline">Delete response</button>
+                                    </x-forms.form>
+                                @endcan
+                            </div>
                         </div>
                     @endforeach
                 </div>

@@ -14,6 +14,7 @@ Route::get('/', function () {
 Route::get('/feed', [PostFeedController::class, 'index'])->name('feed.index');
 Route::get('/feed/post/{post}', [PostFeedController::class, 'show'])->name('feed.post');
 Route::get('/feed/search', [PostFeedController::class, 'search'])->name('feed.search');
+Route::get('/feed/category/{category}', [PostFeedController::class, 'category'])->name('feed.category');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

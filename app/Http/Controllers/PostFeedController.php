@@ -11,8 +11,8 @@ class PostFeedController extends Controller
     public function index()
     {
         return view('feed.index', [
-            'posts' => Post::all(),
-            'categories' => Category::all(),
+            'posts' => Post::latest()->get(),
+            'categories' => Category::latest()->get(),
         ]);
     }
 
@@ -23,12 +23,21 @@ class PostFeedController extends Controller
         $posts = Post::query()
             ->where('title', 'LIKE', '%' . $searchTerm . '%')
             ->orWhere('body', 'LIKE', '%' . $searchTerm . '%')
+            ->latest()
             ->get();
 
         return view('feed.index', [
             'posts' => $posts,
-            'categories' => Category::all(),
+            'categories' => Category::latest()->get(),
             'searchTerm' => $searchTerm,
+        ]);
+    }
+
+    public function category(Category $category)
+    {
+        return view('feed.index', [
+            'posts' => $category->posts()->latest()->get(),
+            'categories' => Category::latest()->get(),
         ]);
     }
 

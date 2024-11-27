@@ -24,8 +24,8 @@
                     <a href="{{ route('feed.index') }}" class="text-2xl font-bold">{{ config('app.name', 'Laravel') }}</a>
                     <form action="{{ route('feed.search') }}" method="GET" class="flex items-center gap-2">
                         <input type="text" name="query" placeholder="Search posts" value="{{ request('query') }}"
-                            class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">
+                            class="border border-gray-300 rounded-full px-3 py-2 focus:outline-none focus:ring-0">
+                        <button type="submit" class="bg-primary text-white px-4 py-2 rounded-full">
                             Search
                         </button>
                     </form>
