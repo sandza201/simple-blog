@@ -52,7 +52,6 @@
                                         </form>
                                         <a href="{{ route('categories.edit', $category) }}"
                                             class="text-primary">edit</a>
-                                        <a href="{{ route('categories.show', $category) }}">view</a>
                                     </td>
                                 </tr>
                             @endforeach

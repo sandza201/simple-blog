@@ -21,10 +21,6 @@
             <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.*')">
                 Posts
             </x-nav-link>
-
-            <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
-                Categories
-            </x-nav-link>
         </div>
     </div>
 </nav>

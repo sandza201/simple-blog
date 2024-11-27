@@ -8,7 +8,7 @@ use App\Models\User;
 class CommentPolicy
 {
     /**
-     * Determine whether the user can create models.
+     * Determine whether the user can create comments.
      */
     public function create(User $user): bool
     {
@@ -16,7 +16,7 @@ class CommentPolicy
     }
 
     /**
-     * Determine whether the user can delete the model.
+     * Determine whether the user can delete the comment.
      */
     public function delete(User $user, Comment $comment): bool
     {

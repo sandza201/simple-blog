@@ -62,6 +62,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $this->authorize('update', $post);
+
         return view('posts.edit', [
             'post' => $post,
             'categories' => Category::all(),
@@ -73,6 +75,8 @@ class PostController extends Controller
      */
     public function update(StorePostRequest $request, Post $post)
     {
+        $this->authorize('update', $post);
+
         $validated = $request->validated();
 
         $post->update($validated);

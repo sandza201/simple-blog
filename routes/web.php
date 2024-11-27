@@ -26,7 +26,6 @@ Route::middleware('auth')->group(function () {
 
     Route::resources([
         'posts' => PostController::class,
-        'categories' => CategoryController::class,
     ]);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
