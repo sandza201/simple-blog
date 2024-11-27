@@ -47,3 +47,35 @@ And then, compile the assets :
 ```bash
 $ npm run dev
 ```
+
+## How to Use
+
+### 1. **User Registration and Login**
+   - **Registration**: Upon visiting the website, click on the **Register** button. Fill out the registration form with your details (name, email, password) and submit.
+   - **Login**: Once registered, you can log in with your email and password by clicking the **Login** button.
+
+### 2. **CRUD Operations for Blog Posts**
+   - After logging in, you will be redirected to your **Dashboard**. From here, you can manage your blog posts.
+   - **Create a Post**: Navigate to **Posts** in the dashboard navigation and click on the **New Post** button to add a new blog post. You'll need to provide a title, body content, and select any relevant categories.
+   - **Read Posts**: You can view all posts in the **Feed** section. Each post displays the title, author name, creation date, and body content.
+   - **Edit a Post**: On your posts list, click the **Edit** button next to a post to modify it.
+   - **Delete a Post**: You can delete a post by clicking the **Delete** button.
+
+### 3. **Comments**
+   - **Post a Comment**: If you're logged in, you can post a comment on any blog post. Simply scroll to the comment section at the bottom of the post and type your comment.
+   - **Delete Your Comment**: You can delete only your own comments by clicking the **Delete** button next to your comment.
+
+### 4. **Categories**
+   - **Assign Categories**: While creating or editing a post, you can select one or more categories for your post from the available categories.
+   - **View by Category**: You can filter blog posts by categories in **Feed** by selecting a category from the topbar by clicking on a category name.
+
+### 5. **Search**
+   - **Search Posts**: To search for posts by title or body, use the search bar located at the top of the feed page. Type in a keyword and hit enter to see matching results.
+
+---
+
+### Additional Features
+
+- **Pagination**: Blog posts are paginated for easy browsing. You can navigate between pages using the **Next** and **Previous** links.
+- **Validation**: All form inputs are validated to ensure correct data is entered (e.g., required fields, valid email format).
+- **Responsive Design**: The application is fully responsive and works well on both desktop and mobile devices.
