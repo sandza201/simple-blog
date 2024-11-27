@@ -1,5 +1,5 @@
 <x-blog-layout>
-    <div class="max-w-3xl mx-auto my-8">
+    <div class="max-w-3xl mx-auto my-8 px-4">
         @isset($searchTerm)
             <span class="text-4xl font-bold">
                 <span class="text-gray-500">Results For</span>
