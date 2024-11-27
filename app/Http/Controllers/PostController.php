@@ -7,7 +7,6 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
@@ -20,7 +19,7 @@ class PostController extends Controller
     public function index()
     {
         return view('posts.index', [
-            'posts' => Auth::user()->posts,
+            'posts' => Auth::user()->posts()->latest()->paginate(1),
         ]);
     }
 

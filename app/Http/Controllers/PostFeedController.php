@@ -11,7 +11,7 @@ class PostFeedController extends Controller
     public function index()
     {
         return view('feed.index', [
-            'posts' => Post::latest()->get(),
+            'posts' => Post::latest()->paginate(10),
             'categories' => Category::latest()->get(),
         ]);
     }
@@ -24,7 +24,8 @@ class PostFeedController extends Controller
             ->where('title', 'LIKE', '%' . $searchTerm . '%')
             ->orWhere('body', 'LIKE', '%' . $searchTerm . '%')
             ->latest()
-            ->get();
+            ->paginate(10)
+            ->withQueryString();
 
         return view('feed.index', [
             'posts' => $posts,
@@ -36,7 +37,7 @@ class PostFeedController extends Controller
     public function category(Category $category)
     {
         return view('feed.index', [
-            'posts' => $category->posts()->latest()->get(),
+            'posts' => $category->posts()->latest()->paginate(10),
             'categories' => Category::latest()->get(),
         ]);
     }

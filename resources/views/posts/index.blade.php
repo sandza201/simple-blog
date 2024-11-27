@@ -60,7 +60,11 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="p-4">
+                    {{ $posts->links() }}
+                </div>
             </div>
+
         </div>
     </div>
 </x-app-layout>

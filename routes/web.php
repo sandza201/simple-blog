@@ -7,30 +7,33 @@ use App\Http\Controllers\PostFeedController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+// Public routes
+Route::get('/', fn() => view('welcome'))->name('home');
 
-Route::get('/feed', [PostFeedController::class, 'index'])->name('feed.index');
-Route::get('/feed/post/{post}', [PostFeedController::class, 'show'])->name('feed.post');
-Route::get('/feed/search', [PostFeedController::class, 'search'])->name('feed.search');
-Route::get('/feed/category/{category}', [PostFeedController::class, 'category'])->name('feed.category');
+Route::prefix('feed')->name('feed.')->group(function () {
+    Route::get('/', [PostFeedController::class, 'index'])->name('index');
+    Route::get('/post/{post}', [PostFeedController::class, 'show'])->name('post');
+    Route::get('/search', [PostFeedController::class, 'search'])->name('search');
+    Route::get('/category/{category}', [PostFeedController::class, 'category'])->name('category');
+});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Authenticated routes
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+    // Comment routes
     Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
 
-    Route::resources([
-        'posts' => PostController::class,
-    ]);
+    // Post resource routes
+    Route::resource('posts', PostController::class);
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // Profile routes
+    Route::prefix('profile')->name('profile.')->group(function () {
+        Route::get('/', [ProfileController::class, 'edit'])->name('edit');
+        Route::patch('/', [ProfileController::class, 'update'])->name('update');
+        Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy');
+    });
 });
 
 require __DIR__ . '/auth.php';

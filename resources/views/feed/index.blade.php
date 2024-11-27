@@ -41,6 +41,9 @@
                     </div>
                 </a>
             @endforeach
+            <div class="py-4">
+                {{ $posts->links() }}
+            </div>
         </div>
     </div>
 </x-blog-layout>
