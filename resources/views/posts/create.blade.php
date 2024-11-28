@@ -9,15 +9,15 @@
         <x-forms.form method="post" action="{{ route('posts.store') }}">
             <div class="bg-white shadow-sm sm:rounded-lg p-6 border flex flex-col gap-6">
                 <div class="flex flex-col">
-                    <x-forms.input-label value="title" />
-                    <x-forms.text-input name="title" value="{{ old('title') }}" />
+                    <x-forms.input-label value="title" required/>
+                    <x-forms.text-input name="title" value="{{ old('title') }}" required maxlength="255" />
                 </div>
 
                 <x-forms.select-multiple :$categories />
 
                 <div>
-                    <x-forms.input-label value="body" />
-                    <x-forms.rich-text name="body" />
+                    <x-forms.input-label value="body" required />
+                    <x-forms.rich-text name="body" required />
                 </div>
             </div>
             <div class="flex flex-row gap-4 items-center mt-4">

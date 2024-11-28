@@ -23,6 +23,9 @@
     <input type="hidden" name="{{ $name }}" :value="editorContent">
 </div>
 
+@error($name)
+    <span class="text-red-600 text-sm mt-2">{{ $message }}</span>
+@enderror
 <style>
     button.is-active {
         background: black;

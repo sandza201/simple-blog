@@ -22,17 +22,19 @@ document.addEventListener('alpine:init', () => {
                     onCreate({ editor }) {
                         _this.updatedAt = Date.now();
                         _this.editorContent = editor.getHTML();
+                        if (editor.getHTML()=== '<p></p>') _this.editorContent = ''
                     },
                     onUpdate({ editor }) {
                         _this.updatedAt = Date.now();
                         _this.editorContent = editor.getHTML();
+                        if (editor.getHTML()=== '<p></p>') _this.editorContent = 'sss'
                     },
                     onSelectionUpdate({ editor }) {
                         _this.updatedAt = Date.now();
                     },
                 });
             },
-            
+
             isActive(type, opts = {}) {
                 return editor.isActive(type, opts)
             },

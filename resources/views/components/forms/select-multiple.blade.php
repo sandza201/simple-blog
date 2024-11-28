@@ -1,7 +1,7 @@
 @props(['categories' => [], 'selected' => []])
 
 <div class="relative" x-data="multiSelect()">
-    <x-forms.input-label value="categories" />
+    <x-forms.input-label value="categories" required />
     <div class="mt-1 relative">
         <button type="button" @click="open = !open"
             class="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm">

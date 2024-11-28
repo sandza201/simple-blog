@@ -46,19 +46,18 @@
                 <h1 class="font-bold text-2xl mb-8">Comments ({{ count($comments) }})</h1>
 
                 @can('create', App\Models\Comment::class)
-                    <form action="{{ route('comments.store', $post->id) }}" method="POST">
+                    <x-forms.form action="{{ route('comments.store', $post->id) }}" method="POST">
                         @csrf
                         <span class="flex flex-col w-full shadow-lg border border-gray-50 relative min-h-32 p-4">
                             <span class="font-medium">{{ auth()->user()->name }}</span>
                             <input type="text" class="border-0 px-0 focus:ring-0" name="content" id="content"
-                                placeholder="What are your thoughts?"></input>
+                                placeholder="What are your thoughts?" required></input>
                             <button type="submit"
                                 class="absolute bottom-2 right-2 bg-green-600 rounded-full px-3 py-2 text-sm text-white">Respond</button>
                         </span>
 
-                    </form>
+                    </x-forms.form>
                 @endcan
-
 
                 <div class="border-t mt-12">
                     @foreach ($comments as $comment)
